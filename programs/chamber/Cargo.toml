@@ -1,0 +1,30 @@
+[package]
+name = "cetra-chamber"
+version = "0.1.0"
+edition = "2021"
+description = "№1 Delta-Neutral manager on Solana."
+readme = "README.md"
+authors = ["Cetra Finance"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.24.2"
+anchor-spl = "0.24.2"
+tulipv2-sdk-levfarm = { git = "https://github.com/sol-farm/tulipv2-sdk" }
+tulipv2-sdk-common = { git = "https://github.com/sol-farm/tulipv2-sdk" }
+tulipv2-sdk-vaults = { git = "https://github.com/sol-farm/tulipv2-sdk" }
+sighashdb = "0.1.37"
+
+[dev-dependencies]
+cetra-program-test = { git = "https://github.com/cetra-finance/cetra-program-test" }
